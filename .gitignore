@@ -2,3 +2,5 @@ inspec.deb
 inspec.rpm
 .vagrant
 inspec.lock
+.kitchen
+.idea
