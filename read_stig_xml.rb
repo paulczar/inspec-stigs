@@ -36,7 +36,7 @@ groups.each do |group|
   sevprep = xml.css('Rule')
   impact = sevprep[0]['severity']
   case impact
-  when 'low' 
+  when 'low'
     sev = '0.1'
   when 'medium'
     sev = '0.5'
@@ -66,15 +66,15 @@ title '#{id} - #{title2.text}'
 control '#{id}' do
   impact #{sev}
   title '#{title2.text}'
-  desc '#{cdesc.text.gsub("\n", " ").gsub("'", "")}'
+  desc '#{cdesc.text.gsub("\n", " ").gsub("'", "\\\\'")}'
   tag 'stig', '#{id}'
   tag severity: '#{impact}'
   tag checkid: '#{checkid}'
   tag fixid: '#{fixid}'
   tag version: '#{vers.text}'
   tag ruleid: '#{ruleid}'
-  tag fixtext: '#{fixident.text.gsub("'", "")}'
-  tag checktext: '#{checktxt.text.gsub("'", "")}'
+  tag fixtext: '#{fixident.text.gsub("'", "\\\\'")}'
+  tag checktext: '#{checktxt.text.gsub("'", "\\\\'")}'
 
 # START_DESCRIBE #{id}
   describe file('') do
